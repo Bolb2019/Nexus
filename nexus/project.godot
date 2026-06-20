@@ -59,7 +59,10 @@ PowerSlide={
 [physics]
 
 3d/physics_engine="Jolt Physics"
+common/enable_pause_aware_picking=true
 
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+environment/defaults/default_clear_color=Color(0.25815427, 0.409845, 0.20836693, 1)
+environment/default_environment="res://default_env.tres"

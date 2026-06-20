@@ -1,6 +1,7 @@
 extends Node2D
 
 const MAX_CHEESE = 200
+const SPAWN_RANGE = 384*20
 
 var time = 0
 var wait_time = 0
@@ -26,4 +27,4 @@ func genCheese():
 		
 	var cheese = preload("res://Objectives/Objects/Cheese.tscn").instantiate()
 	add_child(cheese)
-	cheese.global_position =  Vector2(randi() % 3000, randi() % 3000)
+	cheese.global_position =  Vector2(randi() % SPAWN_RANGE, randi() % SPAWN_RANGE)
