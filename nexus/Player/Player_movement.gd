@@ -3,6 +3,7 @@ extends CharacterBody2D
 const MAX_SPEED = 800
 const ACCELERATION = 18
 const FRICTION = 5
+const TURN_SPEED = 15
 
 var turn_acell = 0.055
 var powerslide = false
@@ -25,16 +26,14 @@ func _physics_process(delta: float) -> void:
 	elif (velocity.y >= 0):
 		velocity.y -=  FRICTION
 	
-	turn_acell = 0.03 + (MAX_SPEED - abs(velocity.y + velocity.x)) / (MAX_SPEED * 10)
+	turn_acell = 0.03 + (MAX_SPEED - abs(velocity.y + velocity.x)) / (MAX_SPEED * TURN_SPEED)
 	
 	var modded_turn_accel = turn_acell
-	if (powerslide):
+	if (powerslide and turn_acell <= 1):
 		if (turn_acell <= 0.05):
 			modded_turn_accel *= 2
 		else:
 			modded_turn_accel *= 1.5
-	print(turn_acell)
-	print(modded_turn_accel)
 	
 	if (Input.is_action_pressed("Turn_Left")):
 		rotation -= modded_turn_accel

@@ -4,7 +4,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b6ncb"]
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1748143763]
+[node name="Player" type="CharacterBody2D" unique_id=1748143763]
 script = ExtResource("1_3qydi")
 
 [node name="Body" type="ColorRect" parent="." unique_id=1565727587]
@@ -54,7 +54,10 @@ offset_bottom = 17.652172
 rotation = 1.5707964
 color = Color(0, 0, 0, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wheel_br" unique_id=1510867913]
-position = Vector2(-9, -6.9999995)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1510867913]
+rotation = 1.5707964
 scale = Vector2(1, 2)
 shape = SubResource("RectangleShape2D_b6ncb")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2024309942]
+position_smoothing_enabled = true

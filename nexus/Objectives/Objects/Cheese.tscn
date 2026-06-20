@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://dr5mav3y6dyjb"]
+
+[ext_resource type="Script" uid="uid://bv0nml1obpp0c" path="res://Objectives/Objects/Cheese_Collide.gd" id="1_h1amk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0g4wg"]
+size = Vector2(22, 22)
+
+[sub_resource type="Gradient" id="Gradient_h1amk"]
+colors = PackedColorArray(1, 1, 0.4627451, 1, 1, 1, 1, 0)
+
+[node name="Cheese" type="Area2D" unique_id=1549110226]
+script = ExtResource("1_h1amk")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1244145970]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+color = Color(1, 1, 0.4627451, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=854050943]
+visible = false
+shape = SubResource("RectangleShape2D_0g4wg")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1723078245]
+emitting = false
+amount = 60
+one_shot = true
+speed_scale = 3.0
+explosiveness = 0.65
+randomness = 0.46
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 39.22
+initial_velocity_max = 39.22
+linear_accel_min = 10.78
+linear_accel_max = 10.78
+radial_accel_min = 28.43
+radial_accel_max = 28.43
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 2.0
+scale_amount_max = 10.0
+color = Color(1, 1, 0.4627451, 1)
+color_ramp = SubResource("Gradient_h1amk")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

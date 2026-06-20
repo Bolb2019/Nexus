@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://sikv4aa8o7vj"]
+
+[ext_resource type="Script" uid="uid://cx8148bgdttn6" path="res://Objectives/Spawners/cheese_spawner.gd" id="1_pejqm"]
+
+[node name="Cheese Spawner" type="Node2D" unique_id=874335331]
+script = ExtResource("1_pejqm")
