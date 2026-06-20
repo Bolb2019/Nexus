@@ -3,11 +3,11 @@ extends Node2D
 @export var city_width: int = 20
 @export var city_height: int = 20
 
-@export var cell_size: int = 384
-@export var road_width: int = 128
+@export var cell_size: int = 334 + randi() % 100
+@export var road_width: int = 108 + randi() % 40
 
-@export var building_min_size: int = 64
-@export var building_max_size: int = 128
+@export var building_min_size: int = 54 + randi() % 20
+@export var building_max_size: int = 108 + randi() % 40
 
 @export var road_color: Color = Color(0.2, 0.2, 0.2)
 
