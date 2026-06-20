@@ -7,7 +7,8 @@ var wait_time = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	while (get_child_count() < MAX_CHEESE):
+		genCheese()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
