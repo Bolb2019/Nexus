@@ -1,16 +1,20 @@
 extends CharacterBody2D
 
+const MAX_SPEED = 800
 const ACCELERATION = 18
 const FRICTION = 5
-const TURN_ACCELERATION = 0.055
+
+var turn_acell = 0.055
+var powerslide = false
 
 func _physics_process(delta: float) -> void:
 	var direction := Vector2.RIGHT.rotated(rotation)
-	print("y:" + str(direction.x))
-	print("x:" + str(direction.y))
 	
-	if (Input.is_action_pressed("Forward")):
+	if (Input.is_action_pressed("Forward") and abs(velocity.x + velocity.y) <= MAX_SPEED):
 		velocity += direction * ACCELERATION
+		powerslide = false
+	else:
+		powerslide = true
 	
 	if (velocity.x >= 0):
 		velocity.x -=  FRICTION
@@ -20,10 +24,21 @@ func _physics_process(delta: float) -> void:
 		velocity.y += FRICTION
 	elif (velocity.y >= 0):
 		velocity.y -=  FRICTION
-		
+	
+	turn_acell = 0.03 + (MAX_SPEED - abs(velocity.y + velocity.x)) / (MAX_SPEED * 10)
+	
+	var modded_turn_accel = turn_acell
+	if (powerslide):
+		if (turn_acell <= 0.05):
+			modded_turn_accel *= 2
+		else:
+			modded_turn_accel *= 1.5
+	print(turn_acell)
+	print(modded_turn_accel)
+	
 	if (Input.is_action_pressed("Turn_Left")):
-		rotation -= TURN_ACCELERATION
+		rotation -= modded_turn_accel
 	elif (Input.is_action_pressed("Turn_Right")):
-		rotation += TURN_ACCELERATION
-		
+		rotation += modded_turn_accel
+	
 	move_and_slide()
