@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-const ACCELERATION = 10
-const FRICTION = 25
+const ACCELERATION = 18
+const FRICTION = 5
 const TURN_ACCELERATION = 0.055
 
 func _physics_process(delta: float) -> void:
@@ -11,10 +11,15 @@ func _physics_process(delta: float) -> void:
 	
 	if (Input.is_action_pressed("Forward")):
 		velocity += direction * ACCELERATION
-	elif (velocity.x >= abs(direction.x)):
-		velocity.x -= direction.x * FRICTION
-	elif (velocity.y >= abs(direction.y)):
-		velocity.y -= direction.y * FRICTION
+	
+	if (velocity.x >= 0):
+		velocity.x -=  FRICTION
+	elif (velocity.x <= 0):
+		velocity.x += FRICTION
+	if (velocity.y <= 0):
+		velocity.y += FRICTION
+	elif (velocity.y >= 0):
+		velocity.y -=  FRICTION
 		
 	if (Input.is_action_pressed("Turn_Left")):
 		rotation -= TURN_ACCELERATION
