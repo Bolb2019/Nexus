@@ -1,7 +1,6 @@
 extends Node2D
 
-const CHEESE_SPAWN = 50 #High numbers = higher spawns
-const MAX_CHEESE = 20
+const MAX_CHEESE = 200
 
 var time = 0
 var wait_time = 0
@@ -17,6 +16,8 @@ func _process(delta: float) -> void:
 	if time > wait_time:
 		wait_time += 1
 		genCheese()
+		genCheese()
+		genCheese()
 
 func genCheese():
 	if get_child_count() >= MAX_CHEESE:
@@ -24,4 +25,4 @@ func genCheese():
 		
 	var cheese = preload("res://Objectives/Objects/Cheese.tscn").instantiate()
 	add_child(cheese)
-	cheese.global_position =  Vector2(randi() % 1080, randi() % 1080)
+	cheese.global_position =  Vector2(randi() % 3000, randi() % 3000)

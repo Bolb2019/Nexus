@@ -3,9 +3,45 @@
 [ext_resource type="PackedScene" uid="uid://cs2esnkvg0kjt" path="res://Player/Player.tscn" id="1_lxy7q"]
 [ext_resource type="PackedScene" uid="uid://sikv4aa8o7vj" path="res://Objectives/Spawners/Cheese Spawner.tscn" id="2_83ytx"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_83ytx"]
+size = Vector2(3017, 20)
+
 [node name="Main" type="Node2D" unique_id=381744176]
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=293351749]
+offset_right = 3000.0
+offset_bottom = 3000.0
+color = Color(0.03231424, 0.39786384, 0.2524828, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ColorRect" unique_id=1423052646]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/StaticBody2D" unique_id=381934893]
+position = Vector2(1498.5, 0)
+shape = SubResource("RectangleShape2D_83ytx")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ColorRect" unique_id=1899354138]
+position = Vector2(-5, 2994)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/StaticBody2D2" unique_id=910920735]
+position = Vector2(1498.5, 0)
+shape = SubResource("RectangleShape2D_83ytx")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="ColorRect" unique_id=458001691]
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/StaticBody2D3" unique_id=570279]
+position = Vector2(1498.5, 0)
+shape = SubResource("RectangleShape2D_83ytx")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="ColorRect" unique_id=1566833753]
+position = Vector2(2991, 2994)
+rotation = -1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/StaticBody2D4" unique_id=1647464955]
+position = Vector2(1498.5, 0)
+shape = SubResource("RectangleShape2D_83ytx")
+
 [node name="Player" parent="." unique_id=1748143763 instance=ExtResource("1_lxy7q")]
-position = Vector2(691, 385)
+position = Vector2(1473, 1507)
 
 [node name="Cheese Spawner" parent="." unique_id=874335331 instance=ExtResource("2_83ytx")]

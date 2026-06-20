@@ -14,6 +14,9 @@ func _physics_process(delta: float) -> void:
 	if (Input.is_action_pressed("Forward") and abs(velocity.x + velocity.y) <= MAX_SPEED):
 		velocity += direction * ACCELERATION
 		powerslide = false
+	elif (Input.is_action_pressed("Backward") and abs(velocity.x + velocity.y) <= MAX_SPEED):
+		velocity -= direction * ACCELERATION
+		powerslide = false
 	else:
 		powerslide = true
 	
