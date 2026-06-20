@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://cs2esnkvg0kjt"]
+
+[ext_resource type="Script" uid="uid://d1l0eqlbgcrf6" path="res://Player/Player_movement.gd" id="1_3qydi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b6ncb"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1748143763]
+script = ExtResource("1_3qydi")
+
+[node name="Body" type="ColorRect" parent="." unique_id=1565727587]
+offset_left = 21.0
+offset_top = -11.0
+offset_right = 43.0
+offset_bottom = 31.0
+rotation = 1.5707964
+
+[node name="Window" type="ColorRect" parent="." unique_id=1371271874]
+offset_left = 19.0
+offset_top = -7.0
+offset_right = 34.19175
+offset_bottom = 0.26530838
+rotation = 1.5707964
+color = Color(0.4603997, 0.69982684, 0.878163, 1)
+
+[node name="Wheel_fl" type="ColorRect" parent="." unique_id=288650839]
+offset_left = 16.0
+offset_top = -13.0
+offset_right = 19.844664
+offset_bottom = -4.347828
+rotation = 1.5707964
+color = Color(0, 0, 0, 1)
+
+[node name="Wheel_fr" type="ColorRect" parent="." unique_id=1195795137]
+offset_left = 16.0
+offset_top = 9.0
+offset_right = 19.844664
+offset_bottom = 17.652172
+rotation = 1.5707964
+color = Color(0, 0, 0, 1)
+
+[node name="Wheel_bl" type="ColorRect" parent="." unique_id=1541675275]
+offset_left = -8.0
+offset_top = -13.0
+offset_right = -4.1553364
+offset_bottom = -4.347828
+rotation = 1.5707964
+color = Color(0, 0, 0, 1)
+
+[node name="Wheel_br" type="ColorRect" parent="." unique_id=1960360507]
+offset_left = -7.0
+offset_top = 9.0
+offset_right = -3.1553364
+offset_bottom = 17.652172
+rotation = 1.5707964
+color = Color(0, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wheel_br" unique_id=1510867913]
+position = Vector2(-9, -6.9999995)
+scale = Vector2(1, 2)
+shape = SubResource("RectangleShape2D_b6ncb")
