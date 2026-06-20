@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const MAX_SPEED = 800
+const MAX_SPEED = 1300
 const ACCELERATION = 18
 const FRICTION = 5
 const TURN_SPEED = 15
@@ -15,7 +15,7 @@ func _physics_process(delta: float) -> void:
 		velocity += direction * ACCELERATION
 		powerslide = false
 	elif (Input.is_action_pressed("Backward") and abs(velocity.x + velocity.y) <= MAX_SPEED):
-		velocity -= direction * ACCELERATION
+		velocity -= direction * ACCELERATION/2
 		powerslide = false
 	else:
 		powerslide = true
