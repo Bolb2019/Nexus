@@ -79,7 +79,7 @@ func _update_player_count():
 func start_game(map_data: Dictionary):
 	game_started = true
 	GlobalStats.map_data = map_data
-	get_tree().change_scene_to_file("res://Main/Main.tscn")
+	SceneManager.change_to_scene("main")
 
 @rpc("any_peer", "unreliable_ordered")
 func update_data(id: int, data: Dictionary):
@@ -107,7 +107,7 @@ func report_dead():
 func report_win():
 	# TODO: dead screen
 	GlobalStats.score = 500
-	get_tree().change_scene_to_file("res://Menu/menu.tscn")
+	SceneManager.change_to_scene("menu")
 
 @rpc("call_local")
 func create_cheese(cheese_id: int, position: Vector2):

@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GlobalStats="*uid://1c085kscfxo1"
 Lobby="*uid://3gpf485k6c56"
+SceneManager="*uid://c5stou5mkp8nx"
 
 [display]
 
