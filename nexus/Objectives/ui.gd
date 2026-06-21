@@ -9,6 +9,7 @@ var leaderboard_items: Dictionary[int, Control] = {}
 
 func _ready() -> void:
 	%Label.player = player
+	%Mobile.visible = OS.has_feature("mobile")
 	Lobby.server_disconnected.connect(_on_game_over)
 
 func _process(_delta: float) -> void:
@@ -45,3 +46,39 @@ func _on_game_over():
 	for item in leaderboard_items.values():
 		item.queue_free()
 	leaderboard_items.clear()
+
+
+func _on_up_button_down() -> void:
+	Input.action_press("Forward")
+
+
+func _on_up_button_up() -> void:
+	Input.action_release("Forward")
+
+
+func _on_down_button_down() -> void:
+	Input.action_press("Backward")
+
+
+func _on_down_button_up() -> void:
+	Input.action_release("Backward")
+
+
+func _on_left_button_down() -> void:
+	Input.action_press("Turn_Left")
+
+
+func _on_left_button_up() -> void:
+	Input.action_release("Turn_Left")
+
+
+func _on_right_button_down() -> void:
+	Input.action_press("Turn_Right")
+
+
+func _on_right_button_up() -> void:
+	Input.action_release("Turn_Right")
+
+
+func _on_button_pressed() -> void:
+	SceneManager.change_to_scene("menu")
