@@ -4,11 +4,21 @@
 [ext_resource type="Texture2D" uid="uid://bn3ypjkvqxj6l" path="res://assets/Clippy.png" id="1_jfw0t"]
 [ext_resource type="Texture2D" uid="uid://d34oavtratode" path="res://assets/Slide_1.png" id="2_7qlwa"]
 [ext_resource type="Texture2D" uid="uid://cqucujwh7yo5v" path="res://assets/Text_box.png" id="2_ina2d"]
+[ext_resource type="Texture2D" uid="uid://d2h8pit43tlu1" path="res://assets/Slide_0.png" id="2_l56qm"]
 [ext_resource type="FontFile" uid="uid://d1aykfnioo262" path="res://Menu/tahoma.ttf" id="3_ina2d"]
-[ext_resource type="Texture2D" uid="uid://cb7k6njbp8qag" path="res://assets/Slide_2.png" id="3_u3af7"]
-[ext_resource type="Texture2D" uid="uid://d3wqfnfxq4dvy" path="res://assets/Slide_3.png" id="4_5vh2c"]
+[ext_resource type="Texture2D" uid="uid://d1s0bl0y131br" path="res://assets/Slide_2.png" id="3_u3af7"]
+[ext_resource type="Texture2D" uid="uid://cceld0gyjs6c5" path="res://assets/Slide_3.png" id="4_5vh2c"]
 [ext_resource type="Texture2D" uid="uid://dlc60xj5t54cn" path="res://assets/no.png" id="4_dpqlq"]
 [ext_resource type="Texture2D" uid="uid://df183i25q27y7" path="res://assets/yes.png" id="5_egqtv"]
+[ext_resource type="Texture2D" uid="uid://bunhpi5e864y" path="res://assets/Slide_4.png" id="6_tm7ry"]
+[ext_resource type="Texture2D" uid="uid://dkk2m8ssfj3jb" path="res://assets/Slide_5.png" id="7_dcy21"]
+[ext_resource type="Texture2D" uid="uid://cb7k6njbp8qag" path="res://assets/Slide_6.png" id="8_yacrj"]
+[ext_resource type="Texture2D" uid="uid://dc7fx36ufh5ye" path="res://assets/Slide_7.png" id="9_5av3a"]
+[ext_resource type="Texture2D" uid="uid://cp26hif6vnrb6" path="res://assets/Slide_8.png" id="10_7kpb4"]
+[ext_resource type="Texture2D" uid="uid://ccj7pmmoibaud" path="res://assets/Slide_9.png" id="11_yoyp0"]
+[ext_resource type="Texture2D" uid="uid://b8ksrajdcubn2" path="res://assets/Slide_10.png" id="12_mjiau"]
+[ext_resource type="Texture2D" uid="uid://mwljyqq7ob8u" path="res://assets/Slide_11.png" id="13_h58jk"]
+[ext_resource type="Texture2D" uid="uid://d3wqfnfxq4dvy" path="res://assets/Slide_last.png" id="14_spgka"]
 
 [node name="Clippy" type="Control" unique_id=221354196]
 layout_mode = 3
@@ -23,39 +33,99 @@ script = ExtResource("1_4oknc")
 
 [node name="Node" type="Node" parent="CanvasLayer" unique_id=1950440777]
 
-[node name="Slide1" type="Sprite2D" parent="CanvasLayer/Node" unique_id=2018264469]
+[node name="Slide0" type="Sprite2D" parent="CanvasLayer/Node" unique_id=1517184521]
 visible = false
-position = Vector2(574.5, 324)
+position = Vector2(577, 326)
+scale = Vector2(1.02, 1.02)
+texture = ExtResource("2_l56qm")
+
+[node name="Slide1" type="Sprite2D" parent="CanvasLayer/Node" unique_id=1196245700]
+visible = false
+position = Vector2(577, 326)
 scale = Vector2(1.02, 1.02)
 texture = ExtResource("2_7qlwa")
 
-[node name="Slide2" type="Sprite2D" parent="CanvasLayer/Node" unique_id=70309062]
+[node name="Slide2" type="Sprite2D" parent="CanvasLayer/Node" unique_id=2084091941]
 visible = false
-position = Vector2(574.5, 324)
+position = Vector2(577, 326)
 scale = Vector2(1.02, 1.02)
 texture = ExtResource("3_u3af7")
 
-[node name="Slide3" type="Sprite2D" parent="CanvasLayer/Node" unique_id=408708355]
+[node name="Slide3" type="Sprite2D" parent="CanvasLayer/Node" unique_id=1155292947]
 visible = false
-position = Vector2(574.5, 324)
+position = Vector2(577, 326)
 scale = Vector2(1.02, 1.02)
 texture = ExtResource("4_5vh2c")
 
+[node name="Slide4" type="Sprite2D" parent="CanvasLayer/Node" unique_id=367124873]
+visible = false
+position = Vector2(577, 326)
+scale = Vector2(1.02, 1.02)
+texture = ExtResource("6_tm7ry")
+
+[node name="Slide5" type="Sprite2D" parent="CanvasLayer/Node" unique_id=1237536952]
+visible = false
+position = Vector2(577, 326)
+scale = Vector2(1.02, 1.02)
+texture = ExtResource("7_dcy21")
+
+[node name="Slide6" type="Sprite2D" parent="CanvasLayer/Node" unique_id=1284283963]
+visible = false
+position = Vector2(577, 326)
+scale = Vector2(1.02, 1.02)
+texture = ExtResource("8_yacrj")
+
+[node name="Slide7" type="Sprite2D" parent="CanvasLayer/Node" unique_id=782291376]
+visible = false
+position = Vector2(577, 326)
+scale = Vector2(1.02, 1.02)
+texture = ExtResource("9_5av3a")
+
+[node name="Slide8" type="Sprite2D" parent="CanvasLayer/Node" unique_id=767513234]
+visible = false
+position = Vector2(577, 326)
+scale = Vector2(1.02, 1.02)
+texture = ExtResource("10_7kpb4")
+
+[node name="Slide9" type="Sprite2D" parent="CanvasLayer/Node" unique_id=169142357]
+visible = false
+position = Vector2(577, 326)
+scale = Vector2(1.02, 1.02)
+texture = ExtResource("11_yoyp0")
+
+[node name="Slide10" type="Sprite2D" parent="CanvasLayer/Node" unique_id=648252318]
+visible = false
+position = Vector2(577, 326)
+scale = Vector2(1.02, 1.02)
+texture = ExtResource("12_mjiau")
+
+[node name="Slide11" type="Sprite2D" parent="CanvasLayer/Node" unique_id=1557004660]
+visible = false
+position = Vector2(577, 326)
+scale = Vector2(1.02, 1.02)
+texture = ExtResource("13_h58jk")
+
+[node name="SlideLast" type="Sprite2D" parent="CanvasLayer/Node" unique_id=1866058489]
+visible = false
+position = Vector2(577, 326)
+scale = Vector2(1.02, 1.02)
+texture = ExtResource("14_spgka")
+
 [node name="Clippy" type="Sprite2D" parent="CanvasLayer" unique_id=1075461190]
-position = Vector2(973.75, 469.74997)
-scale = Vector2(2.4698348, 2.4698348)
+position = Vector2(1039.4058, 364.5509)
+scale = Vector2(2.1207507, 2.1207507)
 texture = ExtResource("1_jfw0t")
 
 [node name="Speach_Bubble" type="Sprite2D" parent="CanvasLayer" unique_id=101995651]
-position = Vector2(873.4988, 198.75003)
-scale = Vector2(1.2741228, 1.274123)
+position = Vector2(962.65576, 121.80095)
+scale = Vector2(1.0070257, 1.0070258)
 texture = ExtResource("2_ina2d")
 
 [node name="Label" type="Label" parent="CanvasLayer" unique_id=607066327]
-offset_left = 685.00006
-offset_top = 79.0
-offset_right = 833.2938
-offset_bottom = 165.90332
+offset_left = 810.6558
+offset_top = 24.800919
+offset_right = 930.6461
+offset_bottom = 94.56276
 scale = Vector2(2.5085347, 2.5085347)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_ina2d")
@@ -64,17 +134,19 @@ text = "The quick brown fox jumped over the lazy dog"
 autowrap_mode = 3
 
 [node name="yes" type="Button" parent="CanvasLayer" unique_id=282331017]
-offset_left = 699.0
-offset_top = 246.0
-offset_right = 833.0
-offset_bottom = 296.0
+offset_left = 817.6558
+offset_top = 152.80093
+offset_right = 951.6558
+offset_bottom = 202.80093
+scale = Vector2(0.828652, 0.828652)
 icon = ExtResource("5_egqtv")
 
 [node name="no" type="Button" parent="CanvasLayer" unique_id=656406137]
-offset_left = 909.0
-offset_top = 248.0
-offset_right = 1043.0
-offset_bottom = 298.0
+offset_left = 995.65576
+offset_top = 154.80093
+offset_right = 1129.6558
+offset_bottom = 204.80093
+scale = Vector2(0.828652, 0.828652)
 icon = ExtResource("4_dpqlq")
 
 [connection signal="pressed" from="CanvasLayer/yes" to="." method="_on_yes_pressed"]

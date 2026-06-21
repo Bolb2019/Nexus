@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://c6p7062u6vgjf" path="res://assets/host.png" id="4_w6voe"]
 [ext_resource type="Texture2D" uid="uid://deppqeflxgyx" path="res://assets/exit.png" id="5_eafcm"]
 [ext_resource type="PackedScene" uid="uid://d2a4foka7duvy" path="res://Map_gen/city.tscn" id="6_w6voe"]
-[ext_resource type="PackedScene" uid="uid://cxivuvxjulqyi" path="res://Menu/Clippy.tscn" id="7_eafcm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ofseh"]
 content_margin_left = 10.0
@@ -87,18 +86,6 @@ icon = ExtResource("3_ofseh")
 [node name="QuitButton" type="Button" parent="CanvasLayer/HBoxContainer" unique_id=1948331762]
 layout_mode = 2
 icon = ExtResource("5_eafcm")
-
-[node name="Clippy" parent="." unique_id=221354196 instance=ExtResource("7_eafcm")]
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 738.0
-offset_top = 480.0
-offset_right = 738.0
-offset_bottom = 548.0
-grow_horizontal = 1
-grow_vertical = 1
 
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
