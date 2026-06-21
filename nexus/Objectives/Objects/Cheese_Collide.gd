@@ -4,6 +4,8 @@ extends Area2D
 
 var dying = false
 
+signal eaten(id: int)
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -20,4 +22,5 @@ func _on_body_entered(body: Node2D) -> void:
 		GlobalStats.score += 1
 		Lobby.update_score.rpc(multiplayer.get_unique_id(), GlobalStats.score)
 		Lobby.delete_cheese.rpc(id)
+		eaten.emit(id)
 		dying = true

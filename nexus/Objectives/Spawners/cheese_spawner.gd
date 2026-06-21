@@ -44,7 +44,11 @@ func _on_cheese_created(id: int, pos: Vector2):
 	add_child(cheese)
 	cheese.id = id
 	cheese.global_position = pos
+	cheese.eaten.connect(_on_cheese_eaten)
 	cheeses[id] = cheese
+
+func _on_cheese_eaten(id: int):
+	cheeses.erase(id)
 
 func _on_cheese_deleted(id: int):
 	if cheeses.has(id):
