@@ -61,7 +61,7 @@ func update_data(id: int, data: Dictionary):
 	players[id] = data
 	player_updated.emit(id, data)
 
-@rpc("any_peer")
+@rpc("any_peer", "call_local")
 func update_score(id: int, score: int):
 	if players.has(id):
 		players[id]["score"] = score
