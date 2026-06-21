@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cxivuvxjulqyi"]
+
+[ext_resource type="Texture2D" uid="uid://bn3ypjkvqxj6l" path="res://assets/Clippy.png" id="1_jfw0t"]
+[ext_resource type="Texture2D" uid="uid://cqucujwh7yo5v" path="res://assets/Screenshot_From_2026-06-21_00-28-12-removebg-preview.png" id="2_ina2d"]
+
+[node name="Clippy" type="Control" unique_id=221354196]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Clippy" type="Sprite2D" parent="." unique_id=1075461190]
+position = Vector2(973.75, 469.74997)
+scale = Vector2(0.7010001, 0.7010001)
+texture = ExtResource("1_jfw0t")
+
+[node name="Speach_Bubble" type="Sprite2D" parent="." unique_id=101995651]
+position = Vector2(873.4988, 198.75003)
+scale = Vector2(1.2741228, 1.274123)
+texture = ExtResource("2_ina2d")
+
+[node name="Label" type="Label" parent="." unique_id=607066327]
+layout_mode = 0
+offset_left = 702.0
+offset_top = 88.0
+offset_right = 762.0
+offset_bottom = 116.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "meow"
