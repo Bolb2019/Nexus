@@ -12,7 +12,7 @@ signal server_connection_failed
 var players: Dictionary[int, Dictionary] = {}
 
 func _ready() -> void:
-	multiplayer.peer_connected.connect(_update_player_count)
+	multiplayer.peer_connected.connect(_on_peer_connected)
 	multiplayer.peer_disconnected.connect(_on_peer_disconnected)
 	multiplayer.connected_to_server.connect(_on_server_connected)
 	multiplayer.connection_failed.connect(server_connection_failed.emit)
@@ -34,6 +34,9 @@ func join_game(ip: String):
 
 func leave_game() -> void:
 	multiplayer.multiplayer_peer = OfflineMultiplayerPeer.new()
+	_update_player_count()
+
+func _on_peer_connected(_id: int):
 	_update_player_count()
 
 func _on_peer_disconnected(id: int):
