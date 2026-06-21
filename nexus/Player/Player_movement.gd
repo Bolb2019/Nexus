@@ -1,8 +1,8 @@
 extends CharacterBody2D
 class_name Player
 
-const MAX_SPEED = 1300
-const ACCELERATION = 18
+const MAX_SPEED = 800
+const ACCELERATION = 13
 const FRICTION = 5
 const TURN_SPEED = 15
 
@@ -17,7 +17,7 @@ var score := 0
 
 func _physics_process(delta: float) -> void:
 	if controlled:
-		scale = Vector2(1 + float(GlobalStats.score / 100.0), 1 + float(GlobalStats.score / 100.0))*1.5
+		scale = Vector2(1 + float(GlobalStats.score / 100.0), 1 + float(GlobalStats.score / 100.0))*1.2
 		
 		var direction := Vector2.RIGHT.rotated(rotation)
 		
