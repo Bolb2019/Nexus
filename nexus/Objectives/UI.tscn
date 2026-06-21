@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" uid="uid://dydgnapnkj2bc" path="res://Objectives/ui.gd" id="1_20mo1"]
 [ext_resource type="Script" uid="uid://c5ovqc8vtqslm" path="res://Objectives/Score.gd" id="1_hwdt4"]
+[ext_resource type="Texture2D" uid="uid://h4xjdcbq02cl" path="res://assets/arrow_up.png" id="3_w5yh5"]
+[ext_resource type="Texture2D" uid="uid://n52erkxs046s" path="res://assets/arrow_down.png" id="4_1p4xp"]
+[ext_resource type="Texture2D" uid="uid://b3lglvd8mo2pv" path="res://assets/arrow_left.png" id="5_1qgy3"]
+[ext_resource type="Texture2D" uid="uid://ns52jyv84sht" path="res://assets/arrow_right.png" id="6_qyhgb"]
 
 [node name="Ui" type="Control" unique_id=648884518]
 layout_mode = 3
@@ -31,3 +35,35 @@ metadata/_edit_use_anchors_ = true
 [node name="Leaderboard" type="VBoxContainer" parent="CanvasLayer/VBoxContainer" unique_id=518989620]
 unique_name_in_owner = true
 layout_mode = 2
+
+[node name="Mobile" type="CanvasLayer" parent="." unique_id=215179432]
+unique_name_in_owner = true
+
+[node name="Up" type="TouchScreenButton" parent="Mobile" unique_id=718707242]
+position = Vector2(96, 413)
+texture_normal = ExtResource("3_w5yh5")
+passby_press = true
+
+[node name="Down" type="TouchScreenButton" parent="Mobile" unique_id=2055706572]
+position = Vector2(96, 505)
+texture_normal = ExtResource("4_1p4xp")
+passby_press = true
+
+[node name="Left" type="TouchScreenButton" parent="Mobile" unique_id=234701479]
+position = Vector2(862, 459)
+texture_normal = ExtResource("5_1qgy3")
+passby_press = true
+
+[node name="Right" type="TouchScreenButton" parent="Mobile" unique_id=1579785367]
+position = Vector2(974, 459)
+texture_normal = ExtResource("6_qyhgb")
+passby_press = true
+
+[connection signal="pressed" from="Mobile/Up" to="." method="_on_up_button_down"]
+[connection signal="released" from="Mobile/Up" to="." method="_on_up_button_up"]
+[connection signal="pressed" from="Mobile/Down" to="." method="_on_down_button_down"]
+[connection signal="released" from="Mobile/Down" to="." method="_on_down_button_up"]
+[connection signal="pressed" from="Mobile/Left" to="." method="_on_left_button_down"]
+[connection signal="released" from="Mobile/Left" to="." method="_on_left_button_up"]
+[connection signal="pressed" from="Mobile/Right" to="." method="_on_right_button_down"]
+[connection signal="released" from="Mobile/Right" to="." method="_on_right_button_up"]
