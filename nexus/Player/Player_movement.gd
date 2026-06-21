@@ -88,7 +88,7 @@ func _on_area_2d_body_shape_entered(body_rid: RID, body: Node2D, body_shape_inde
 	var other := body as Player
 	var other_speed := other.velocity.length_squared()
 	var self_speed := velocity.length_squared()
-	var other_lose_cheese_float := (self_speed-other_speed)/100000
+	var other_lose_cheese_float := (self_speed-other_speed)/100000 * (1+GlobalStats.score/100.0)
 	var other_lose_cheese := int(signf(other_lose_cheese_float)) * ceili(absf(other_lose_cheese_float))
 	
 	if other_lose_cheese > 0:
