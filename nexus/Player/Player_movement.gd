@@ -17,7 +17,7 @@ var score := 0
 
 func _physics_process(delta: float) -> void:
 	if controlled:
-		scale = Vector2(1 + float(GlobalStats.score / 100.0), 1 + float(GlobalStats.score / 100.0))
+		scale = Vector2(1 + float(GlobalStats.score / 100.0), 1 + float(GlobalStats.score / 100.0))*1.5
 		
 		var direction := Vector2.RIGHT.rotated(rotation)
 		
