@@ -56,7 +56,7 @@ func _on_score_updated(id: int, score: int):
 
 func _on_disconnected() -> void:
 	Lobby.leave_game()
-	get_tree().change_scene_to_file("res://Menu/menu.tscn")
+	SceneManager.change_to_scene("menu")
 
 func _on_player_left(id: int) -> void:
 	if players.has(id):
@@ -66,4 +66,4 @@ func _on_player_left(id: int) -> void:
 		# TODO: win screen
 		Lobby.report_win.rpc()
 		GlobalStats.score = 500
-		get_tree().change_scene_to_file("res://Menu/menu.tscn")
+		SceneManager.change_to_scene("menu")

@@ -9,7 +9,7 @@ func _ready() -> void:
 func _on_play_button_pressed() -> void:
 	GlobalStats.score = 0
 	%Player/Label.visible = true
-	get_tree().change_scene_to_file("res://Menu/Lobby/client_lobby.tscn")
+	SceneManager.change_to_scene("client_lobby")
 
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
@@ -17,4 +17,4 @@ func _on_quit_button_pressed() -> void:
 func _on_host_button_pressed() -> void:
 	GlobalStats.score = 0
 	%Player/Label.visible = true
-	get_tree().change_scene_to_file("res://Menu/Lobby/server_lobby.tscn")
+	SceneManager.change_to_scene("server_lobby")
