@@ -8,44 +8,47 @@ const TURN_SPEED = 15
 var turn_acell = 0.055
 var powerslide = false
 
+var controlled = true
+
 func _physics_process(delta: float) -> void:
-	scale = Vector2(1 + float(GlobalStats.score / 100.0), 1 + float(GlobalStats.score / 100.0))
-	
-	var direction := Vector2.RIGHT.rotated(rotation)
-	
-	if (Input.is_action_pressed("Forward") and abs(velocity.x + velocity.y) <= MAX_SPEED):
-		velocity += direction * ACCELERATION
-		powerslide = false
-	elif (Input.is_action_pressed("Backward") and abs(velocity.x + velocity.y) <= MAX_SPEED):
-		velocity -= direction * ACCELERATION/2
-		powerslide = false
-	else:
-		powerslide = true
-	
-	if (velocity.x >= 0):
-		velocity.x -=  FRICTION
-	elif (velocity.x <= 0):
-		velocity.x += FRICTION
-	if (velocity.y <= 0):
-		velocity.y += FRICTION
-	elif (velocity.y >= 0):
-		velocity.y -=  FRICTION
-	
-	turn_acell = 0.03 + (MAX_SPEED - abs(velocity.y + velocity.x)) / (MAX_SPEED * TURN_SPEED)
-	
-	var modded_turn_accel = turn_acell
-	if (powerslide and turn_acell <= 1):
-		if (turn_acell <= 0.05):
-			modded_turn_accel *= 2
+	if controlled:
+		scale = Vector2(1 + float(GlobalStats.score / 100.0), 1 + float(GlobalStats.score / 100.0))
+		
+		var direction := Vector2.RIGHT.rotated(rotation)
+		
+		if (Input.is_action_pressed("Forward") and abs(velocity.x + velocity.y) <= MAX_SPEED):
+			velocity += direction * ACCELERATION
+			powerslide = false
+		elif (Input.is_action_pressed("Backward") and abs(velocity.x + velocity.y) <= MAX_SPEED):
+			velocity -= direction * ACCELERATION/2
+			powerslide = false
 		else:
-			modded_turn_accel *= 1.5
-	
-	if (Input.is_action_pressed("Turn_Left")):
-		rotation -= modded_turn_accel
-		$Label.rotation += modded_turn_accel
-	elif (Input.is_action_pressed("Turn_Right")):
-		rotation += modded_turn_accel
-		$Label.rotation -= modded_turn_accel
-	$Label.global_position = self.global_position + Vector2(-40, -100)
-	
-	move_and_slide()
+			powerslide = true
+		
+		if (velocity.x >= 0):
+			velocity.x -=  FRICTION
+		elif (velocity.x <= 0):
+			velocity.x += FRICTION
+		if (velocity.y <= 0):
+			velocity.y += FRICTION
+		elif (velocity.y >= 0):
+			velocity.y -=  FRICTION
+		
+		turn_acell = 0.03 + (MAX_SPEED - abs(velocity.y + velocity.x)) / (MAX_SPEED * TURN_SPEED)
+		
+		var modded_turn_accel = turn_acell
+		if (powerslide and turn_acell <= 1):
+			if (turn_acell <= 0.05):
+				modded_turn_accel *= 2
+			else:
+				modded_turn_accel *= 1.5
+		
+		if (Input.is_action_pressed("Turn_Left")):
+			rotation -= modded_turn_accel
+			$Label.rotation += modded_turn_accel
+		elif (Input.is_action_pressed("Turn_Right")):
+			rotation += modded_turn_accel
+			$Label.rotation -= modded_turn_accel
+		$Label.global_position = self.global_position + Vector2(-40, -100)
+		
+		move_and_slide()
