@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bprtn7ajs3qdg"]
+
+[ext_resource type="Texture2D" uid="uid://cmrnkd1hepi0q" path="res://assets/person.png" id="1_hbq3d"]
+[ext_resource type="Script" uid="uid://di7a2db1erviu" path="res://Menu/Lobby/lobby_common.gd" id="1_sphe8"]
+
+[node name="LobbyCommon" type="HBoxContainer" unique_id=590350303]
+offset_right = 40.0
+offset_bottom = 40.0
+alignment = 1
+script = ExtResource("1_sphe8")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=630985907]
+layout_mode = 2
+texture = ExtResource("1_hbq3d")
+stretch_mode = 5
+
+[node name="PlayerCount" type="Label" parent="." unique_id=1139850038]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"

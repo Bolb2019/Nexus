@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cvejcxoalh1wa" path="res://Menu/menu.gd" id="1_ihied"]
 [ext_resource type="PackedScene" uid="uid://cs2esnkvg0kjt" path="res://Player/Player.tscn" id="1_rwxi6"]
 [ext_resource type="Texture2D" uid="uid://drrvrs5lcynlw" path="res://assets/play.png" id="3_ofseh"]
-[ext_resource type="Texture2D" uid="uid://ctkuex3rpo48q" path="res://assets/reset.png" id="4_w6voe"]
+[ext_resource type="Texture2D" uid="uid://c6p7062u6vgjf" path="res://assets/host.png" id="4_w6voe"]
 [ext_resource type="Texture2D" uid="uid://deppqeflxgyx" path="res://assets/exit.png" id="5_eafcm"]
 [ext_resource type="PackedScene" uid="uid://d2a4foka7duvy" path="res://Map_gen/city.tscn" id="6_w6voe"]
 
@@ -75,17 +75,18 @@ theme = SubResource("Theme_mf1wf")
 theme_override_constants/separation = 40
 alignment = 1
 
+[node name="HostButton" type="Button" parent="CanvasLayer/HBoxContainer" unique_id=250543941]
+layout_mode = 2
+icon = ExtResource("4_w6voe")
+
 [node name="PlayButton" type="Button" parent="CanvasLayer/HBoxContainer" unique_id=705341106]
 layout_mode = 2
 icon = ExtResource("3_ofseh")
-
-[node name="ResetButton" type="Button" parent="CanvasLayer/HBoxContainer" unique_id=1607444051]
-layout_mode = 2
-icon = ExtResource("4_w6voe")
 
 [node name="QuitButton" type="Button" parent="CanvasLayer/HBoxContainer" unique_id=1948331762]
 layout_mode = 2
 icon = ExtResource("5_eafcm")
 
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

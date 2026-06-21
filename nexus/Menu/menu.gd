@@ -6,14 +6,15 @@ func _ready() -> void:
 	%Player/Label.visible = false
 	%Player/Camera2D.position_smoothing_enabled = false
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 func _on_play_button_pressed() -> void:
 	GlobalStats.score = 0
 	%Player/Label.visible = true
-	get_tree().change_scene_to_file("res://Main/Main.tscn")
+	get_tree().change_scene_to_file("res://Menu/Lobby/client_lobby.tscn")
 
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
+
+func _on_host_button_pressed() -> void:
+	GlobalStats.score = 0
+	%Player/Label.visible = true
+	get_tree().change_scene_to_file("res://Menu/Lobby/server_lobby.tscn")
