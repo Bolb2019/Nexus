@@ -12,6 +12,8 @@ signal score_updated(id: int, score: int)
 signal server_connected
 signal server_connection_failed
 signal server_disconnected
+signal cheese_created(id: int, position: Vector2)
+signal cheese_deleted(id: int)
 
 ## { "name": "meow", "velocity": Vector2, "position": Vector2, "rotation": 0.0 }
 ## does not include self
@@ -106,3 +108,11 @@ func report_win():
 	# TODO: dead screen
 	GlobalStats.score = 500
 	get_tree().change_scene_to_file("res://Menu/menu.tscn")
+
+@rpc("call_local")
+func create_cheese(cheese_id: int, position: Vector2):
+	cheese_created.emit(cheese_id, position)
+
+@rpc("any_peer")
+func delete_cheese(id: int):
+	cheese_deleted.emit(id)
