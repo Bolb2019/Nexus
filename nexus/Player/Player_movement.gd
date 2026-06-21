@@ -50,12 +50,9 @@ func _physics_process(delta: float) -> void:
 		
 		if (Input.is_action_pressed("Turn_Left")):
 			rotation -= modded_turn_accel
-			$Label.rotation += modded_turn_accel
 		elif (Input.is_action_pressed("Turn_Right")):
 			rotation += modded_turn_accel
-			$Label.rotation -= modded_turn_accel
-		$Label.global_position = self.global_position + Vector2(-40, -100)
-	
+
 	move_and_slide()
 	
 	if controlled:
