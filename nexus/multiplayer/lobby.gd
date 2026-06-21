@@ -61,6 +61,9 @@ func update_data(id: int, data: Dictionary):
 	player_updated.emit(id, data)
 
 @rpc("any_peer")
-func update_data_reliable(id: int, data: Dictionary):
-	players[id] = data
-	player_updated.emit(id, data)
+func update_score(id: int, score: int):
+	if players.has(id):
+		players[id]["score"] = score
+		player_updated.emit(id, players[id])
+	elif id == multiplayer.get_unique_id():
+		GlobalStats.score = score

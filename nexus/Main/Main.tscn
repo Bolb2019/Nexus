@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://c5nq0x0kidi5v"]
 
+[ext_resource type="Script" uid="uid://dr1ved1xt5xwu" path="res://Main/main.gd" id="1_6aewd"]
 [ext_resource type="PackedScene" uid="uid://d2a4foka7duvy" path="res://Map_gen/city.tscn" id="1_amygn"]
 [ext_resource type="PackedScene" uid="uid://cs2esnkvg0kjt" path="res://Player/Player.tscn" id="1_lxy7q"]
 [ext_resource type="PackedScene" uid="uid://sikv4aa8o7vj" path="res://Objectives/Spawners/Cheese Spawner.tscn" id="2_83ytx"]
 [ext_resource type="PackedScene" uid="uid://hxtbtk18s86e" path="res://Objectives/UI.tscn" id="4_ps1la"]
 
 [node name="Main" type="Node2D" unique_id=381744176]
+script = ExtResource("1_6aewd")
 
 [node name="City" parent="." unique_id=1828074466 instance=ExtResource("1_amygn")]
 

@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 const MAX_SPEED = 1300
 const ACCELERATION = 18
@@ -9,6 +10,10 @@ var turn_acell = 0.055
 var powerslide = false
 
 var controlled = true
+
+# id and score only valid on non-controlled players
+var id: int
+var score := 0
 
 func _physics_process(delta: float) -> void:
 	if controlled:
@@ -50,5 +55,17 @@ func _physics_process(delta: float) -> void:
 			rotation += modded_turn_accel
 			$Label.rotation -= modded_turn_accel
 		$Label.global_position = self.global_position + Vector2(-40, -100)
-		
-		move_and_slide()
+	
+	move_and_slide()
+	
+	if controlled:
+		for i in get_slide_collision_count():
+			var collision = get_slide_collision(i)
+			var collider = collision.get_collider()
+			if collider is Player and collider.score < GlobalStats.score:
+				Lobby.update_score.rpc(collider.id, collider.score-1)
+
+func _process(_delta: float) -> void:
+	if controlled:
+		var data = { "score": GlobalStats.score, "velocity": velocity, "position": position, "rotation": rotation }
+		Lobby.update_data.rpc(multiplayer.get_unique_id(), data)
