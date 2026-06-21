@@ -15,6 +15,7 @@ func _on_play_button_pressed() -> void:
 
 
 func _on_ip_pressed() -> void:
+	$VBoxContainer/Label.show()
 	$VBoxContainer/Label.text = "IP: " + str(get_local_ip())
 
 func get_local_ip() -> String:

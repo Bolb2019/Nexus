@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://deppqeflxgyx" path="res://assets/exit.png" id="2_awut2"]
 [ext_resource type="PackedScene" uid="uid://d2a4foka7duvy" path="res://Map_gen/city.tscn" id="2_dyuql"]
 [ext_resource type="PackedScene" uid="uid://bprtn7ajs3qdg" path="res://Menu/Lobby/lobby_common.tscn" id="3_dyuql"]
+[ext_resource type="Texture2D" uid="uid://440symkfrk81" path="res://assets/ip.png" id="3_g7dn7"]
 
 [node name="ServerLobby" type="Control" unique_id=2101730404]
 layout_mode = 3
@@ -34,6 +35,7 @@ grow_vertical = 2
 theme_override_constants/separation = 24
 
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=1205921917]
+visible = false
 layout_mode = 2
 text = "IP:"
 horizontal_alignment = 1
@@ -51,7 +53,7 @@ placeholder_text = "Name"
 
 [node name="IP" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=113555102]
 layout_mode = 2
-text = "Find IP"
+icon = ExtResource("3_g7dn7")
 
 [node name="PlayButton" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1900949750]
 unique_name_in_owner = true

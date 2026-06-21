@@ -81,4 +81,5 @@ func _on_right_button_up() -> void:
 
 
 func _on_button_pressed() -> void:
+	GlobalStats.score = 500
 	SceneManager.change_to_scene("menu")
