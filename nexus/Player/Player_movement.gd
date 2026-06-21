@@ -9,6 +9,8 @@ var turn_acell = 0.055
 var powerslide = false
 
 func _physics_process(delta: float) -> void:
+	scale = Vector2(1 + float(GlobalStats.score / 100.0), 1 + float(GlobalStats.score / 100.0))
+	
 	var direction := Vector2.RIGHT.rotated(rotation)
 	
 	if (Input.is_action_pressed("Forward") and abs(velocity.x + velocity.y) <= MAX_SPEED):
@@ -40,7 +42,10 @@ func _physics_process(delta: float) -> void:
 	
 	if (Input.is_action_pressed("Turn_Left")):
 		rotation -= modded_turn_accel
+		$Label.rotation += modded_turn_accel
 	elif (Input.is_action_pressed("Turn_Right")):
 		rotation += modded_turn_accel
+		$Label.rotation -= modded_turn_accel
+	$Label.global_position = self.global_position + Vector2(-40, -100)
 	
 	move_and_slide()

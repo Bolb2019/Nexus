@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://crd2x0y0m3xbc"]
+
+[ext_resource type="Script" uid="uid://deq7ik20fahux" path="res://Menu/Shop/Open_shop.gd" id="1_t4m5m"]
+
+[node name="Shop" type="Control" unique_id=1025315803]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t4m5m")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=957312102]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 648.0
+color = Color(0.41568628, 0.41568628, 0.41568628, 0.44313726)
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=1310512620]
+layout_mode = 0
+offset_left = 198.0
+offset_top = 116.0
+offset_right = 320.0
+offset_bottom = 182.0
+scale = Vector2(5.7592278, 5.7592278)
+columns = 2
+
+[node name="Button" type="Button" parent="GridContainer" unique_id=451188222]
+layout_mode = 2
+text = "Speed"
+
+[node name="Button2" type="Button" parent="GridContainer" unique_id=204163791]
+layout_mode = 2
+text = "Health"
+
+[node name="Button3" type="Button" parent="GridContainer" unique_id=1307670553]
+layout_mode = 2
+text = "Cheese"
+
+[node name="Button4" type="Button" parent="GridContainer" unique_id=1946080239]
+layout_mode = 2
+text = "Size"

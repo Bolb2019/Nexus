@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cs2esnkvg0kjt"]
 
 [ext_resource type="Script" uid="uid://d1l0eqlbgcrf6" path="res://Player/Player_movement.gd" id="1_3qydi"]
+[ext_resource type="Script" uid="uid://c5ovqc8vtqslm" path="res://Objectives/Score.gd" id="2_q3lat"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3qydi"]
 particle_flag_disable_z = true
@@ -84,3 +85,12 @@ shape = SubResource("RectangleShape2D_b6ncb")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2024309942]
 position_smoothing_enabled = true
+
+[node name="Label" type="Label" parent="." unique_id=819822498]
+offset_right = 82.0
+offset_bottom = 67.0
+theme_override_font_sizes/font_size = 48
+text = "000"
+horizontal_alignment = 1
+script = ExtResource("2_q3lat")
+metadata/_edit_use_anchors_ = true
