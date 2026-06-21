@@ -78,3 +78,7 @@ func _on_right_button_down() -> void:
 
 func _on_right_button_up() -> void:
 	Input.action_release("Turn_Right")
+
+
+func _on_button_pressed() -> void:
+	SceneManager.change_to_scene("menu")
