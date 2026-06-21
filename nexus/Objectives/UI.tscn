@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://hxtbtk18s86e"]
 
+[ext_resource type="Script" uid="uid://dydgnapnkj2bc" path="res://Objectives/ui.gd" id="1_20mo1"]
 [ext_resource type="Script" uid="uid://c5ovqc8vtqslm" path="res://Objectives/Score.gd" id="1_hwdt4"]
-[ext_resource type="PackedScene" uid="uid://crd2x0y0m3xbc" path="res://Menu/Shop/shop.tscn" id="2_20mo1"]
 
 [node name="Ui" type="Control" unique_id=648884518]
 layout_mode = 3
@@ -10,10 +10,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_20mo1")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=589587989]
 
 [node name="Label" type="Label" parent="CanvasLayer" unique_id=708337401]
+unique_name_in_owner = true
 offset_left = 11.0
 offset_top = 3.0
 offset_right = 51.0
@@ -22,5 +24,3 @@ theme_override_font_sizes/font_size = 48
 text = "000"
 script = ExtResource("1_hwdt4")
 metadata/_edit_use_anchors_ = true
-
-[node name="Shop" parent="CanvasLayer" unique_id=1025315803 instance=ExtResource("2_20mo1")]

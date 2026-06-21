@@ -16,4 +16,5 @@ position = Vector2(1473, 1507)
 
 [node name="Cheese Spawner" parent="." unique_id=874335331 instance=ExtResource("2_83ytx")]
 
-[node name="Ui" parent="." unique_id=648884518 instance=ExtResource("4_ps1la")]
+[node name="Ui" parent="." unique_id=648884518 node_paths=PackedStringArray("player") instance=ExtResource("4_ps1la")]
+player = NodePath("../Player")
