@@ -11,11 +11,14 @@ func _ready() -> void:
 	Lobby.player_left.connect(_on_player_left)
 	Lobby.player_died.connect(_on_player_left)
 	$Ui.players = players
+	$City.set_from_data(GlobalStats.map_data)
+
 
 func _process(_delta: float) -> void:
 	if GlobalStats.score < 0:
 		Lobby.report_dead.rpc()
-		$Player.queue_free()
+		if $Player:
+			$Player.queue_free()
 
 func _on_player_updated(id: int, data: Dictionary):
 	if not multiplayer:
