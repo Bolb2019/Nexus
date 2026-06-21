@@ -1,7 +1,12 @@
 [gd_scene format=3 uid="uid://cxivuvxjulqyi"]
 
+[ext_resource type="Script" uid="uid://bnj308jy8sgs6" path="res://Menu/Tutorial.gd" id="1_4oknc"]
 [ext_resource type="Texture2D" uid="uid://bn3ypjkvqxj6l" path="res://assets/Clippy.png" id="1_jfw0t"]
-[ext_resource type="Texture2D" uid="uid://cqucujwh7yo5v" path="res://assets/Screenshot_From_2026-06-21_00-28-12-removebg-preview.png" id="2_ina2d"]
+[ext_resource type="Texture2D" uid="uid://cqucujwh7yo5v" path="res://assets/Text_box.png" id="2_ina2d"]
+[ext_resource type="FontFile" uid="uid://d1aykfnioo262" path="res://Menu/tahoma.ttf" id="3_ina2d"]
+[ext_resource type="Texture2D" uid="uid://dlc60xj5t54cn" path="res://assets/no.png" id="4_dpqlq"]
+[ext_resource type="Texture2D" uid="uid://df183i25q27y7" path="res://assets/yes.png" id="5_egqtv"]
+[ext_resource type="Texture2D" uid="uid://cyqgxbwex4df0" path="res://assets/Foucs.png" id="6_egqtv"]
 
 [node name="Clippy" type="Control" unique_id=221354196]
 layout_mode = 3
@@ -10,23 +15,50 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_4oknc")
 
-[node name="Clippy" type="Sprite2D" parent="." unique_id=1075461190]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1196367881]
+
+[node name="Foucs" type="Sprite2D" parent="CanvasLayer" unique_id=1531834021]
+modulate = Color(1, 1, 1, 0.45882353)
+position = Vector2(450.00003, 547)
+scale = Vector2(5.051, 5.051)
+texture = ExtResource("6_egqtv")
+
+[node name="Clippy" type="Sprite2D" parent="CanvasLayer" unique_id=1075461190]
 position = Vector2(973.75, 469.74997)
-scale = Vector2(0.7010001, 0.7010001)
+scale = Vector2(2.4698348, 2.4698348)
 texture = ExtResource("1_jfw0t")
 
-[node name="Speach_Bubble" type="Sprite2D" parent="." unique_id=101995651]
+[node name="Speach_Bubble" type="Sprite2D" parent="CanvasLayer" unique_id=101995651]
 position = Vector2(873.4988, 198.75003)
 scale = Vector2(1.2741228, 1.274123)
 texture = ExtResource("2_ina2d")
 
-[node name="Label" type="Label" parent="." unique_id=607066327]
-layout_mode = 0
-offset_left = 702.0
-offset_top = 88.0
-offset_right = 762.0
-offset_bottom = 116.0
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=607066327]
+offset_left = 685.00006
+offset_top = 79.0
+offset_right = 833.2938
+offset_bottom = 165.90332
+scale = Vector2(2.5085347, 2.5085347)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 20
-text = "meow"
+theme_override_fonts/font = ExtResource("3_ina2d")
+theme_override_font_sizes/font_size = 10
+text = "The quick brown fox jumped over the lazy dog"
+autowrap_mode = 3
+
+[node name="yes" type="Button" parent="CanvasLayer" unique_id=282331017]
+offset_left = 699.0
+offset_top = 246.0
+offset_right = 833.0
+offset_bottom = 296.0
+icon = ExtResource("5_egqtv")
+
+[node name="no" type="Button" parent="CanvasLayer" unique_id=656406137]
+offset_left = 909.0
+offset_top = 248.0
+offset_right = 1043.0
+offset_bottom = 298.0
+icon = ExtResource("4_dpqlq")
+
+[connection signal="pressed" from="CanvasLayer/yes" to="." method="_on_yes_pressed"]
