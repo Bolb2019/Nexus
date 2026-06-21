@@ -18,6 +18,9 @@ hue_variation_max = -2.2351742e-08
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b6ncb"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q3lat"]
+size = Vector2(48, 28)
+
 [node name="Player" type="CharacterBody2D" unique_id=1748143763]
 script = ExtResource("1_3qydi")
 
@@ -97,3 +100,11 @@ horizontal_alignment = 1
 script = ExtResource("2_q3lat")
 player = NodePath("..")
 metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1502221704]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=660289145]
+shape = SubResource("RectangleShape2D_q3lat")
+debug_color = Color(0.75134325, 0.3831781, 0.6604636, 0.41960785)
+
+[connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]
