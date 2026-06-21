@@ -19,6 +19,9 @@ var player_name: String = "Player"
 
 var frame_count := 0
 
+func _ready() -> void:
+	position = Vector2(randi() % 3000, randi() % 3000)
+
 func _physics_process(delta: float) -> void:
 	if dead:
 		return
