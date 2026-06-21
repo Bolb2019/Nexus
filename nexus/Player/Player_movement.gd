@@ -67,5 +67,5 @@ func _physics_process(delta: float) -> void:
 
 func _process(_delta: float) -> void:
 	if controlled:
-		var data = { "score": GlobalStats.score, "velocity": velocity, "position": position, "rotation": rotation }
+		var data = { "velocity": velocity, "position": position, "rotation": rotation }
 		Lobby.update_data.rpc(multiplayer.get_unique_id(), data)

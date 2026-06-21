@@ -16,4 +16,5 @@ func _on_body_entered(body: Node2D) -> void:
 		$CPUParticles2D.emitting = true
 		$ColorRect.visible = false
 		GlobalStats.score += 1
+		Lobby.update_score.rpc(multiplayer.get_unique_id(), GlobalStats.score)
 		dying = true

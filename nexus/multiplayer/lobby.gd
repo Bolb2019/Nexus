@@ -7,7 +7,7 @@ signal player_updated(id: int, data: Dictionary)
 signal server_connected
 signal server_connection_failed
 
-## { "score": 67, "velocity": Vector2, "position": Vector2, "rotation": 0.0 }
+## { "velocity": Vector2, "position": Vector2, "rotation": 0.0 }
 ## does not include self
 var players: Dictionary[int, Dictionary] = {}
 
