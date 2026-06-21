@@ -40,22 +40,26 @@ layout_mode = 2
 unique_name_in_owner = true
 
 [node name="Up" type="TouchScreenButton" parent="Mobile" unique_id=718707242]
-position = Vector2(96, 413)
+position = Vector2(96, 326)
+scale = Vector2(3, 3)
 texture_normal = ExtResource("3_w5yh5")
 passby_press = true
 
 [node name="Down" type="TouchScreenButton" parent="Mobile" unique_id=2055706572]
-position = Vector2(96, 505)
+position = Vector2(96, 490.00003)
+scale = Vector2(3, 3)
 texture_normal = ExtResource("4_1p4xp")
 passby_press = true
 
 [node name="Left" type="TouchScreenButton" parent="Mobile" unique_id=234701479]
-position = Vector2(862, 459)
+position = Vector2(768.00006, 459)
+scale = Vector2(3, 3)
 texture_normal = ExtResource("5_1qgy3")
 passby_press = true
 
 [node name="Right" type="TouchScreenButton" parent="Mobile" unique_id=1579785367]
 position = Vector2(974, 459)
+scale = Vector2(3, 3)
 texture_normal = ExtResource("6_qyhgb")
 passby_press = true
 
