@@ -65,12 +65,12 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	
-	if controlled and frame_count % 10 == 0:
-		for i in get_slide_collision_count():
-			var collision = get_slide_collision(i)
-			var collider = collision.get_collider()
-			if collider is Player and collider.score < GlobalStats.score:
-				Lobby.update_score.rpc(collider.id, collider.score-1)
+	#if controlled and frame_count % 10 == 0:
+		#for i in get_slide_collision_count():
+			#var collision = get_slide_collision(i)
+			#var collider = collision.get_collider()
+			#if collider is Player and collider.score < GlobalStats.score:
+				#Lobby.update_score.rpc(collider.id, collider.score-1)
 
 func _process(_delta: float) -> void:
 	if controlled:
@@ -79,3 +79,17 @@ func _process(_delta: float) -> void:
 
 func die():
 	$CollisionShape2D.disabled = true
+
+## i came into contact with another player
+func _on_area_2d_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	if body is not Player or body == self or not controlled:
+		return
+	
+	var other := body as Player
+	var other_speed := other.velocity.length_squared()
+	var self_speed := velocity.length_squared()
+	var other_lose_cheese_float := (self_speed-other_speed)/100000 * (1+GlobalStats.score/100.0)
+	var other_lose_cheese := int(signf(other_lose_cheese_float)) * ceili(absf(other_lose_cheese_float))
+	
+	if other_lose_cheese > 0:
+		Lobby.update_score.rpc(other.id, other.score-other_lose_cheese)
