@@ -6,15 +6,14 @@ var dying = false
 func _ready() -> void:
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if (dying and $CPUParticles2D.emitting == false):
 		queue_free()
 
-
 func _on_body_entered(body: Node2D) -> void:
 	if (body.name == "Player"):
 		$CPUParticles2D.emitting = true
 		$ColorRect.visible = false
+		GlobalStats.score += 1
 		dying = true
