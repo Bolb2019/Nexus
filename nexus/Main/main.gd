@@ -17,8 +17,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if GlobalStats.score < 0:
 		Lobby.report_dead.rpc()
-		if $Player:
-			$Player.queue_free()
+		$Player.die()
 
 func _on_player_updated(id: int, data: Dictionary):
 	if not multiplayer:

@@ -10,6 +10,7 @@ var turn_acell = 0.055
 var powerslide = false
 
 var controlled = true
+var dead := false
 
 # id and score only valid on non-controlled players
 var id: int
@@ -19,6 +20,9 @@ var player_name: String = "Player"
 var frame_count := 0
 
 func _physics_process(delta: float) -> void:
+	if dead:
+		return
+	
 	frame_count += 1
 	if controlled:
 		scale = Vector2(1 + float(GlobalStats.score / 100.0), 1 + float(GlobalStats.score / 100.0))
@@ -72,3 +76,6 @@ func _process(_delta: float) -> void:
 	if controlled:
 		var data = { "name": Lobby.player_name, "velocity": velocity, "position": position, "rotation": rotation }
 		Lobby.update_data.rpc(multiplayer.get_unique_id(), data)
+
+func die():
+	$CollisionShape2D.disabled = true
