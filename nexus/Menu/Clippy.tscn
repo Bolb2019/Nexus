@@ -2,11 +2,13 @@
 
 [ext_resource type="Script" uid="uid://bnj308jy8sgs6" path="res://Menu/Tutorial.gd" id="1_4oknc"]
 [ext_resource type="Texture2D" uid="uid://bn3ypjkvqxj6l" path="res://assets/Clippy.png" id="1_jfw0t"]
+[ext_resource type="Texture2D" uid="uid://d34oavtratode" path="res://assets/Slide_1.png" id="2_7qlwa"]
 [ext_resource type="Texture2D" uid="uid://cqucujwh7yo5v" path="res://assets/Text_box.png" id="2_ina2d"]
 [ext_resource type="FontFile" uid="uid://d1aykfnioo262" path="res://Menu/tahoma.ttf" id="3_ina2d"]
+[ext_resource type="Texture2D" uid="uid://cb7k6njbp8qag" path="res://assets/Slide_2.png" id="3_u3af7"]
+[ext_resource type="Texture2D" uid="uid://d3wqfnfxq4dvy" path="res://assets/Slide_3.png" id="4_5vh2c"]
 [ext_resource type="Texture2D" uid="uid://dlc60xj5t54cn" path="res://assets/no.png" id="4_dpqlq"]
 [ext_resource type="Texture2D" uid="uid://df183i25q27y7" path="res://assets/yes.png" id="5_egqtv"]
-[ext_resource type="Texture2D" uid="uid://cyqgxbwex4df0" path="res://assets/Foucs.png" id="6_egqtv"]
 
 [node name="Clippy" type="Control" unique_id=221354196]
 layout_mode = 3
@@ -19,11 +21,25 @@ script = ExtResource("1_4oknc")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1196367881]
 
-[node name="Foucs" type="Sprite2D" parent="CanvasLayer" unique_id=1531834021]
-modulate = Color(1, 1, 1, 0.45882353)
-position = Vector2(450.00003, 547)
-scale = Vector2(5.051, 5.051)
-texture = ExtResource("6_egqtv")
+[node name="Node" type="Node" parent="CanvasLayer" unique_id=1950440777]
+
+[node name="Slide1" type="Sprite2D" parent="CanvasLayer/Node" unique_id=2018264469]
+visible = false
+position = Vector2(574.5, 324)
+scale = Vector2(1.02, 1.02)
+texture = ExtResource("2_7qlwa")
+
+[node name="Slide2" type="Sprite2D" parent="CanvasLayer/Node" unique_id=70309062]
+visible = false
+position = Vector2(574.5, 324)
+scale = Vector2(1.02, 1.02)
+texture = ExtResource("3_u3af7")
+
+[node name="Slide3" type="Sprite2D" parent="CanvasLayer/Node" unique_id=408708355]
+visible = false
+position = Vector2(574.5, 324)
+scale = Vector2(1.02, 1.02)
+texture = ExtResource("4_5vh2c")
 
 [node name="Clippy" type="Sprite2D" parent="CanvasLayer" unique_id=1075461190]
 position = Vector2(973.75, 469.74997)
@@ -62,3 +78,4 @@ offset_bottom = 298.0
 icon = ExtResource("4_dpqlq")
 
 [connection signal="pressed" from="CanvasLayer/yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="CanvasLayer/no" to="." method="_on_no_pressed"]
