@@ -65,6 +65,6 @@ func update_data(id: int, data: Dictionary):
 func update_score(id: int, score: int):
 	if players.has(id):
 		players[id]["score"] = score
-		player_updated.emit(id, players[id])
+		score_updated.emit(id, score)
 	elif id == multiplayer.get_unique_id():
 		GlobalStats.score = score

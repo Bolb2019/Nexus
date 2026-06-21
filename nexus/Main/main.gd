@@ -27,6 +27,7 @@ func _on_player_updated(id: int, data: Dictionary):
 		add_child(player)
 
 func _on_score_updated(id: int, score: int):
+	print(id, " ", score)
 	if players.has(id):
 		var player = players[id]
 		player.score = score
