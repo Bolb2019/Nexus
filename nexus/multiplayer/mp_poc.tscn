@@ -8,3 +8,7 @@ script = ExtResource("1_hkjb2")
 
 [node name="Player" parent="." unique_id=938507865 instance=ExtResource("2_f2nc3")]
 unique_name_in_owner = true
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1436567374]
+position_smoothing_enabled = true
+position_smoothing_speed = 6.0

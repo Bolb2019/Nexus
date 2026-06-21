@@ -7,6 +7,8 @@ var players = {}
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Lobby.player_updated.connect(_on_player_updated)
+	%Player.position.x = randf_range(-100, 100)
+	%Player.position.y = randf_range(-100, 100)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

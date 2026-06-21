@@ -39,3 +39,10 @@ color = Color(1, 0.64, 0.64, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1842902355]
 shape = SubResource("RectangleShape2D_2owjj")
+
+[node name="Loc" type="Label" parent="." unique_id=2137959289]
+unique_name_in_owner = true
+offset_left = 5.0
+offset_top = 18.0
+offset_right = 79.0
+offset_bottom = 41.0

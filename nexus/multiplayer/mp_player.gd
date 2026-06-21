@@ -5,6 +5,10 @@ const SPEED = 300.0
 var can_move := true
 
 
+func _process(delta: float) -> void:
+	%Loc.text = "(" + str(position.x) + "," + str(position.y) + ")"
+
+
 func _physics_process(delta: float) -> void:
 	if not can_move:
 		return
