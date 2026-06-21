@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="Nexus"
-run/main_scene="uid://c5nq0x0kidi5v"
+run/main_scene="uid://dayske6p1vnwn"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
 [display]
 
 window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [dotnet]
 
