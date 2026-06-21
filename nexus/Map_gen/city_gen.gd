@@ -28,7 +28,8 @@ var buildings: Array = []
 var boundary_buildings: Array = []
 
 func _ready():
-	rng.randomize()
+	print("setting seed to ", Lobby.seed)
+	rng.seed = Lobby.seed
 
 	_generate_buildings()
 	_generate_boundary_buildings()
