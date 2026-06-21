@@ -25,6 +25,6 @@ func start_game():
 	get_tree().change_scene_to_file("res://multiplayer/mp_poc.tscn")
 
 ## called by client to all peers when updated
-@rpc("call_remote", "unreliable_ordered")
+@rpc("call_remote", "any_peer", "unreliable_ordered")
 func update_player(position: Vector2, rotation: float):
 	player_updated.emit(multiplayer.get_remote_sender_id(), position, rotation)

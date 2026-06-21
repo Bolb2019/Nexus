@@ -2,8 +2,13 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 
+var can_move := true
+
 
 func _physics_process(delta: float) -> void:
+	if not can_move:
+		return
+	
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
 		velocity.x = direction * SPEED

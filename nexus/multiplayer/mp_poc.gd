@@ -21,7 +21,7 @@ func _on_player_updated(id: int, pos: Vector2, rot: float):
 		player.rotation = rot
 	else:
 		var player = MpPlayer.instantiate()
-		player.set_process(false)
+		player.can_move = false
 		player.position = pos
 		player.rotation = rot
 		players[id] = player
