@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c5ys2flv083y8"]
+
+[ext_resource type="Script" uid="uid://dfnoaqqn21icw" path="res://multiplayer/mp_poc.gd" id="1_hkjb2"]
+[ext_resource type="PackedScene" uid="uid://cmlto57tlnc7h" path="res://multiplayer/mp_player.tscn" id="2_f2nc3"]
+
+[node name="MpPoc" type="Node2D" unique_id=430020983]
+script = ExtResource("1_hkjb2")
+
+[node name="Player" parent="." unique_id=938507865 instance=ExtResource("2_f2nc3")]
+unique_name_in_owner = true
