@@ -52,6 +52,8 @@ func _physics_process(delta: float) -> void:
 			rotation -= modded_turn_accel
 		elif (Input.is_action_pressed("Turn_Right")):
 			rotation += modded_turn_accel
+	else:
+		scale = Vector2(1 + float(score / 100.0), 1 + float(score / 100.0))
 
 	move_and_slide()
 	
