@@ -1,0 +1,50 @@
+extends Node
+
+const PORT = 23942
+
+signal player_count_updated(players: int)
+signal player_updated(id: int, data: Dictionary)
+
+## { "score": 67, "velocity": Vector2, "position": Vector2, "rotation": 0.0 }
+## does not include self
+var players: Dictionary[int, Dictionary] = {}
+
+func _ready() -> void:
+	multiplayer.peer_connected.connect(_update_player_count)
+	multiplayer.peer_disconnected.connect(_on_peer_disconnected)
+
+func host_game():
+	var peer = ENetMultiplayerPeer.new()
+	var error = peer.create_server(PORT)
+	if error:
+		return error
+	multiplayer.multiplayer_peer = peer
+
+func join_game(ip: String):
+	var peer = ENetMultiplayerPeer.new()
+	var error = peer.create_client(ip, PORT)
+	if error:
+		return error
+	multiplayer.multiplayer_peer = peer
+
+func _on_peer_disconnected(id: int):
+	players.erase(id)
+	_update_player_count()
+
+func _update_player_count():
+	var count = multiplayer.get_peers().size() + 1
+	player_count_updated.emit(count)
+
+@rpc("call_local")
+func start_game():
+	get_tree().change_scene_to_file("res://Main/Main.tscn")
+
+@rpc("any_peer", "unreliable_ordered")
+func update_data(id: int, data: Dictionary):
+	players[id] = data
+	player_updated.emit(id, data)
+
+@rpc("any_peer")
+func update_data_reliable(id: int, data: Dictionary):
+	players[id] = data
+	player_updated.emit(id, data)
