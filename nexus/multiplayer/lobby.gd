@@ -4,6 +4,7 @@ const PORT = 23942
 
 signal player_count_updated(players: int)
 signal player_updated(id: int, data: Dictionary)
+signal score_updated(id: int, score: int)
 signal server_connected
 signal server_connection_failed
 
