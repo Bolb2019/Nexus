@@ -12,8 +12,7 @@ func _on_play_button_pressed() -> void:
 	SceneManager.change_to_scene("client_lobby")
 
 func _on_quit_button_pressed() -> void:
-	if !GlobalStats.tutorial:
-		get_tree().quit()
+	get_tree().quit()
 
 func _on_host_button_pressed() -> void:
 	GlobalStats.score = 0
