@@ -12,7 +12,6 @@ func _on_player_updated(id: int, data: Dictionary):
 		pass
 	if players.has(id):
 		var player = players[id]
-		player.score = data["score"]
 		player.position = data["position"]
 		player.rotation = data["rotation"]
 		player.velocity = data["velocity"]
@@ -20,7 +19,6 @@ func _on_player_updated(id: int, data: Dictionary):
 		var player = PlayerScene.instantiate()
 		player.controlled = false
 		player.id = id
-		player.score = data["score"]
 		player.position = data["position"]
 		player.rotation = data["rotation"]
 		player.velocity = data["velocity"]
