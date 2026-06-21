@@ -24,7 +24,7 @@ SceneManager="*uid://c5stou5mkp8nx"
 [display]
 
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
+window/stretch/aspect="keep_width"
 
 [dotnet]
 

@@ -33,6 +33,11 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 24
 
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1205921917]
+layout_mode = 2
+text = "IP:"
+horizontal_alignment = 1
+
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1046129748]
 layout_mode = 2
 theme_override_constants/separation = 20
@@ -43,6 +48,10 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 placeholder_text = "Name"
+
+[node name="IP" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=113555102]
+layout_mode = 2
+text = "Find IP"
 
 [node name="PlayButton" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1900949750]
 unique_name_in_owner = true
@@ -56,5 +65,6 @@ icon = ExtResource("2_awut2")
 [node name="LobbyCommon" parent="VBoxContainer" unique_id=590350303 instance=ExtResource("3_dyuql")]
 layout_mode = 2
 
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/IP" to="." method="_on_ip_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
