@@ -63,4 +63,5 @@ func _on_player_left(id: int) -> void:
 	if players.is_empty():
 		# TODO: win screen
 		Lobby.report_win.rpc()
+		GlobalStats.score = 500
 		get_tree().change_scene_to_file("res://Menu/menu.tscn")
