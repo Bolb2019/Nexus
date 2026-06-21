@@ -14,8 +14,12 @@ var controlled = true
 # id and score only valid on non-controlled players
 var id: int
 var score := 0
+var player_name: String = "Player"
+
+var frame_count := 0
 
 func _physics_process(delta: float) -> void:
+	frame_count += 1
 	if controlled:
 		scale = Vector2(1 + float(GlobalStats.score / 100.0), 1 + float(GlobalStats.score / 100.0))
 		
@@ -52,10 +56,12 @@ func _physics_process(delta: float) -> void:
 			rotation -= modded_turn_accel
 		elif (Input.is_action_pressed("Turn_Right")):
 			rotation += modded_turn_accel
+	else:
+		scale = Vector2(1 + float(score / 100.0), 1 + float(score / 100.0))
 
 	move_and_slide()
 	
-	if controlled:
+	if controlled and frame_count % 10 == 0:
 		for i in get_slide_collision_count():
 			var collision = get_slide_collision(i)
 			var collider = collision.get_collider()
@@ -64,5 +70,5 @@ func _physics_process(delta: float) -> void:
 
 func _process(_delta: float) -> void:
 	if controlled:
-		var data = { "velocity": velocity, "position": position, "rotation": rotation }
+		var data = { "name": Lobby.player_name, "velocity": velocity, "position": position, "rotation": rotation }
 		Lobby.update_data.rpc(multiplayer.get_unique_id(), data)

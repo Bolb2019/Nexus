@@ -8,6 +8,8 @@ var connected = false
 func _ready() -> void:
 	Lobby.server_connection_failed.connect(_on_connect_failed)
 	Lobby.server_connected.connect(_on_connected)
+	%Name.text = Lobby.player_name
+	%Name.text_changed.connect(Lobby.update_name)
 
 func _on_connect_button_pressed() -> void:
 	if connected:

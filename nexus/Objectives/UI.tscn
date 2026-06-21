@@ -14,13 +14,20 @@ script = ExtResource("1_20mo1")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=589587989]
 
-[node name="Label" type="Label" parent="CanvasLayer" unique_id=708337401]
-unique_name_in_owner = true
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=1600323050]
 offset_left = 11.0
 offset_top = 3.0
-offset_right = 51.0
-offset_bottom = 26.0
+offset_right = 93.0
+offset_bottom = 70.0
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=708337401]
+unique_name_in_owner = true
+layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "000"
 script = ExtResource("1_hwdt4")
 metadata/_edit_use_anchors_ = true
+
+[node name="Leaderboard" type="VBoxContainer" parent="CanvasLayer/VBoxContainer" unique_id=518989620]
+unique_name_in_owner = true
+layout_mode = 2
