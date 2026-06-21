@@ -27,10 +27,12 @@ var rng := RandomNumberGenerator.new()
 var buildings: Array = []
 var boundary_buildings: Array = []
 
-func _ready():
-	print("setting seed to ", Lobby.seed)
-	rng.seed = Lobby.seed
+var building_collisions := []
+var city_boundaries := []
 
+func _ready():
+	rng.randomize()
+	
 	_generate_buildings()
 	_generate_boundary_buildings()
 
@@ -43,6 +45,29 @@ func _draw():
 	_draw_roads()
 	_draw_boundary_buildings()
 	_draw_buildings()
+
+func set_from_data(map_data: Dictionary):
+	buildings = map_data["buildings"]
+	boundary_buildings = map_data["boundary_buildings"]
+	cell_size = map_data["cell_size"]
+	road_width = map_data["road_width"]
+	building_min_size = map_data["building_min_size"]
+	building_max_size = map_data["building_max_size"]
+
+	_create_building_collisions()
+	_create_city_boundaries()
+
+	queue_redraw()
+
+func get_data() -> Dictionary:
+	return {
+		"buildings": buildings,
+		"boundary_buildings": boundary_buildings,
+		"cell_size": cell_size,
+		"road_width": road_width,
+		"building_min_size": building_min_size,
+		"building_max_size": building_max_size
+	}
 
 func _generate_buildings():
 	buildings.clear()
@@ -187,12 +212,17 @@ func _draw_boundary_buildings():
 		draw_rect(rect, boundary_building_color)
 
 func _create_building_collisions():
+	for item in building_collisions:
+		item.queue_free()
+	building_collisions.clear()
+
 	for building in buildings:
 
 		var rect: Rect2 = building.rect
 
 		var body := StaticBody2D.new()
 		add_child(body)
+		building_collisions.append(body)
 
 		var collision := CollisionShape2D.new()
 		body.add_child(collision)
@@ -204,6 +234,10 @@ func _create_building_collisions():
 		collision.position = rect.position + rect.size * 0.5
 
 func _create_city_boundaries():
+
+	for item in city_boundaries:
+		item.queue_free()
+	city_boundaries.clear()
 
 	var total_width = city_width * cell_size
 	var total_height = city_height * cell_size
@@ -234,6 +268,7 @@ func _create_wall(center: Vector2, size: Vector2):
 
 	var body := StaticBody2D.new()
 	add_child(body)
+	city_boundaries.append(body)
 
 	var collision := CollisionShape2D.new()
 	body.add_child(collision)

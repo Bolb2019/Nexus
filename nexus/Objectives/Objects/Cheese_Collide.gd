@@ -1,5 +1,7 @@
 extends Area2D
 
+@export var id: int
+
 var dying = false
 
 # Called when the node enters the scene tree for the first time.
@@ -12,9 +14,10 @@ func _process(delta: float) -> void:
 		queue_free()
 
 func _on_body_entered(body: Node2D) -> void:
-	if (body.name == "Player"):
+	if body is Player and body.controlled:
 		$CPUParticles2D.emitting = true
 		$ColorRect.visible = false
 		GlobalStats.score += 1
 		Lobby.update_score.rpc(multiplayer.get_unique_id(), GlobalStats.score)
+		Lobby.delete_cheese.rpc(id)
 		dying = true

@@ -12,13 +12,14 @@ signal score_updated(id: int, score: int)
 signal server_connected
 signal server_connection_failed
 signal server_disconnected
+signal cheese_created(id: int, position: Vector2)
+signal cheese_deleted(id: int)
 
 ## { "name": "meow", "velocity": Vector2, "position": Vector2, "rotation": 0.0 }
 ## does not include self
 var players: Dictionary[int, Dictionary] = {}
 
 var game_started := false
-var seed := 0
 
 func _ready() -> void:
 	multiplayer.peer_connected.connect(_on_peer_connected)
@@ -35,7 +36,6 @@ func host_game():
 		return error
 	multiplayer.multiplayer_peer = peer
 	_update_player_count()
-	seed = hash(Time.get_unix_time_from_system())
 
 func join_game(ip: String):
 	game_started = false
@@ -60,7 +60,7 @@ func _on_peer_connected(id: int):
 	var data = { "name": player_name, "velocity": Vector2.ZERO, "position": Vector2.ZERO, "rotation": 0.0 }
 	update_data.rpc_id(id, multiplayer.get_unique_id(), data)
 	if multiplayer.is_server() and game_started:
-		start_game.rpc_id(id, seed)
+		start_game.rpc_id(id, GlobalStats.map_data)
 
 func _on_peer_disconnected(id: int):
 	players.erase(id)
@@ -76,10 +76,9 @@ func _update_player_count():
 	player_count_updated.emit(count)
 
 @rpc("call_local")
-func start_game(set_seed: int):
+func start_game(map_data: Dictionary):
 	game_started = true
-	print("set seed to ", set_seed)
-	seed = set_seed
+	GlobalStats.map_data = map_data
 	get_tree().change_scene_to_file("res://Main/Main.tscn")
 
 @rpc("any_peer", "unreliable_ordered")
@@ -109,3 +108,11 @@ func report_win():
 	# TODO: dead screen
 	GlobalStats.score = 500
 	get_tree().change_scene_to_file("res://Menu/menu.tscn")
+
+@rpc("call_local")
+func create_cheese(cheese_id: int, position: Vector2):
+	cheese_created.emit(cheese_id, position)
+
+@rpc("any_peer")
+func delete_cheese(id: int):
+	cheese_deleted.emit(id)
